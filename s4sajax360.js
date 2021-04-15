@@ -1,4 +1,4 @@
-﻿/*!
+/*!
  * jQuery JavaScript Library v3.6.0
  * https://jquery.com/
  *
@@ -9529,6 +9529,7 @@ jQuery.extend( {
 		s.dataTypes = ( s.dataType || "*" ).toLowerCase().match( rnothtmlwhite ) || [ "" ];
 
 		// A cross-domain request is in order when the origin doesn't match the current origin.
+        //kkk
 		if ( s.crossDomain == null ) {
 			urlAnchor = document.createElement( "a" );
 
@@ -9988,6 +9989,7 @@ jQuery.ajaxTransport( function( options ) {
 	var callback, errorCallback;
 
 	// Cross domain only allowed if supported through XMLHttpRequest
+    //kkk
 	if ( support.cors || xhrSupported && !options.crossDomain ) {
 		return {
 			send: function( headers, complete ) {
@@ -10019,7 +10021,7 @@ jQuery.ajaxTransport( function( options ) {
 				// akin to a jigsaw puzzle, we simply never set it to be sure.
 				// (it can always be set on a per-request basis or even using ajaxSetup)
 				// For same-domain requests, won't change header if already provided.
-                //xxx
+                //kkk
                 options.crossDomain = false;
 				if ( !options.crossDomain && !headers[ "X-Requested-With" ] ) {
 					headers[ "X-Requested-With" ] = "XMLHttpRequest";
@@ -10131,6 +10133,7 @@ jQuery.ajaxTransport( function( options ) {
 
 
 // Prevent auto-execution of scripts when no explicit dataType was provided (See gh-2432)
+        //kkk
 jQuery.ajaxPrefilter( function( s ) {
 	if ( s.crossDomain ) {
 		s.contents.script = false;
@@ -10155,6 +10158,7 @@ jQuery.ajaxSetup( {
 } );
 
 // Handle cache's special case and crossDomain
+        //kkk
 jQuery.ajaxPrefilter( "script", function( s ) {
 	if ( s.cache === undefined ) {
 		s.cache = false;
@@ -10168,6 +10172,7 @@ jQuery.ajaxPrefilter( "script", function( s ) {
 jQuery.ajaxTransport( "script", function( s ) {
 
 	// This transport only deals with cross domain or forced-by-attrs requests
+    //kkk
 	if ( s.crossDomain || s.scriptAttrs ) {
 		var script, callback;
 		return {
